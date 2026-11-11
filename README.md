@@ -7,6 +7,7 @@
 💼 **Role**: Senior Data Engineer at Trellissoft Engineering Services  
 📫 **Email**: [rioraghul@gmail.com](mailto:rioraghul@gmail.com)  
 🔗 **LinkedIn**: [linkedin.com/in/raghul-loganathan](https://linkedin.com/in/raghul-loganathan)  
+🐙 **GitHub**: [github.com/Raghulvl](https://github.com/Raghulvl)  
 
 ---
 

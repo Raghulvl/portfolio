@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raghul Loganathan | Senior Data Engineer & BI Developer</title>
+  <meta name="description" content="Portfolio of Raghul Loganathan - Senior Data Engineer & BI Developer with 6+ years building scalable ETL/streaming pipelines (Fabric, Databricks, Kafka) and executive Power BI dashboards.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+  <!-- Prevent theme flicker script -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else if (savedTheme === 'dark' || prefersDark) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef8ff',
+              100: '#d8eeff',
+              400: '#38bdf8',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              accent: '#06b6d4',
+              emerald: '#10b981',
+              violet: '#8b5cf6',
+            },
+            dark: {
+              bg: '#0B0F19',
+              card: '#111827',
+              border: '#1f2937',
+              muted: '#94a3b8'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    html.dark ::-webkit-scrollbar-track {
+      background: #0B0F19;
+    }
+    html.dark ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    html.dark ::-webkit-scrollbar-thumb:hover {
+      background: #0284c7;
+    }
+    
+    html:not(.dark) ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    html:not(.dark) ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    html.dark .glass-card {
+      background: rgba(17, 24, 39, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    html:not(.dark) .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0284c7 0%, #6366f1 50%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html.dark .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    html.dark .glow-cyan {
+      box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.22);
+    }
+
+    html:not(.dark) .glow-cyan {
+      box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-dark-bg dark:text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+
+  <!-- Ambient Glow Background Accents -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-400/15 dark:bg-cyan-500/10 rounded-full blur-[128px]"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-blue-400/15 dark:bg-blue-600/10 rounded-full blur-[128px]"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-indigo-400/15 dark:bg-indigo-500/10 rounded-full blur-[128px]"></div>
+  </div>
+
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo / Name -->
+        <a href="#hero" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+            RL
+          </div>
+          <div>
+            <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Raghul Loganathan</span>
+            <span class="block text-xs font-mono text-cyan-600 dark:text-cyan-400 font-medium">Sr. Data Engineer & BI Dev</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="#about" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">About</a>
+          <a href="#skills" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Skills</a>
+          <a href="#architecture" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Architecture</a>
+          <a href="#projects" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Projects</a>
+          <a href="#experience" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Experience</a>
+          <a href="#gallery" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Workshops</a>
+          <a href="#contact" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/60 rounded-lg transition-colors">Contact</a>
+        </nav>
+
+        <!-- Header Actions: Theme Switcher + Resume + LinkedIn -->
+        <div class="hidden sm:flex items-center space-x-3">
+          
+          <!-- Theme Switch Button (Desktop) -->
+          <button id="themeToggleBtn" type="button" class="relative inline-flex items-center justify-center p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-300 transition-all duration-200 shadow-sm" title="Toggle Bright/Dark Mode" aria-label="Toggle Theme">
+            <!-- Sun Icon (visible in dark mode, click for bright) -->
+            <i class="fa-solid fa-sun text-base hidden dark:inline-block animate-spin-slow"></i>
+            <!-- Moon Icon (visible in light mode, click for dark) -->
+            <i class="fa-solid fa-moon text-base inline-block dark:hidden text-indigo-600"></i>
+            <span class="sr-only">Toggle Theme</span>
+          </button>
+
+          <!-- Download Resume Button -->
+          <a href="Resume/Raghul-Loganathan-Resume.pdf" target="_blank" download="Raghul_Loganathan_Resume.pdf" class="inline-flex items-center space-x-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-lg shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-200">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Resume</span>
+          </a>
+
+          <!-- LinkedIn Link -->
+          <a href="https://linkedin.com/in/raghul-loganathan" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin text-lg"></i>
+          </a>
+
+          <!-- GitHub Profile Link -->
+          <a href="https://github.com/Raghulvl" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" title="GitHub Profile">
+            <i class="fa-brands fa-github text-lg"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Header Controls -->
+        <div class="flex items-center sm:hidden space-x-2">
+          <!-- Mobile Theme Switcher -->
+          <button id="mobileThemeToggleBtn" type="button" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-300" title="Toggle Theme" aria-label="Toggle Theme">
+            <i class="fa-solid fa-sun text-sm hidden dark:inline-block"></i>
+            <i class="fa-solid fa-moon text-sm inline-block dark:hidden text-indigo-600"></i>
+          </button>
+
+          <a href="Resume/Raghul-Loganathan-Resume.pdf" target="_blank" download class="p-2 text-cyan-600 dark:text-cyan-400">
+            <i class="fa-solid fa-file-arrow-down text-lg"></i>
+          </a>
+
+          <button id="mobileMenuBtn" type="button" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden sm:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-3 pb-6 space-y-2 shadow-xl">
+      <a href="#about" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">About</a>
+      <a href="#skills" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Skills</a>
+      <a href="#architecture" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Architecture</a>
+      <a href="#projects" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Projects</a>
+      <a href="#experience" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Experience</a>
+      <a href="#gallery" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Workshops</a>
+      <a href="#contact" class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Contact</a>
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+        <a href="Resume/Raghul-Loganathan-Resume.pdf" download class="inline-flex items-center space-x-2 text-sm text-cyan-600 dark:text-cyan-400 font-semibold">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>Download Resume PDF</span>
+        </a>
+        <div class="flex items-center space-x-3">
+          <a href="https://github.com/Raghulvl" target="_blank" class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" title="GitHub">
+            <i class="fa-brands fa-github text-xl"></i>
+          </a>
+          <a href="https://linkedin.com/in/raghul-loganathan" target="_blank" class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white" title="LinkedIn">
+            <i class="fa-brands fa-linkedin text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-cyan-200 dark:border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/40 text-cyan-800 dark:text-cyan-300 text-xs font-mono font-medium shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+              <span>Senior Data Engineer & BI Developer • 6+ Years Exp</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              Bridging the gap between <span class="gradient-text">complex data pipelines</span> and <span class="gradient-text">executive decisions</span>.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Specialized in engineering end-to-end data architectures: building robust streaming & batch pipelines with <strong class="text-slate-900 dark:text-white font-semibold">Microsoft Fabric, Databricks, PySpark, & Kafka</strong>, and translating raw data into decision-ready <strong class="text-slate-900 dark:text-white font-semibold">Power BI executive dashboards</strong>.
+            </p>
+
+            <!-- Quick Metric Highlights -->
+            <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="text-2xl sm:text-3xl font-extrabold text-cyan-600 dark:text-cyan-400">6+</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Years Experience</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">45%</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Fabric CU Saved</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">20+</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">Dashboards Migrated</div>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
+              <a href="#projects" class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-200">
+                <span>Explore Featured Projects</span>
+                <i class="fa-solid fa-arrow-down text-sm"></i>
+              </a>
+
+              <a href="Resume/Raghul-Loganathan-Resume.pdf" target="_blank" download="Raghul_Loganathan_Resume.pdf" class="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700/80 border border-slate-300 dark:border-slate-700 shadow-sm transition-all duration-200">
+                <i class="fa-solid fa-download text-cyan-600 dark:text-cyan-400"></i>
+                <span>Download Resume</span>
+              </a>
+
+              <a href="#contact" class="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-transparent hover:bg-slate-200/50 dark:hover:bg-slate-800/40 border border-slate-300 dark:border-slate-800 transition-colors">
+                <i class="fa-regular fa-paper-plane text-cyan-600 dark:text-cyan-400"></i>
+                <span>Get in Touch</span>
+              </a>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span class="font-sans text-xs font-medium">Core Ecosystem:</span>
+              <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/70 text-cyan-700 dark:text-cyan-300 shadow-xs">Microsoft Fabric</span>
+              <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/70 text-cyan-700 dark:text-cyan-300 shadow-xs">Databricks / PySpark</span>
+              <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/70 text-cyan-700 dark:text-cyan-300 shadow-xs">Power BI (DAX)</span>
+              <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/70 text-cyan-700 dark:text-cyan-300 shadow-xs">Kafka & CDC</span>
+              <span class="px-2.5 py-1 rounded-md bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/70 text-cyan-700 dark:text-cyan-300 shadow-xs">Medallion Architecture</span>
+            </div>
+
+          </div>
+
+          <!-- Hero Image & Interactive Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              
+              <!-- Ambient Glow -->
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-xl opacity-30 dark:opacity-40 transition duration-1000"></div>
+              
+              <!-- Card Container -->
+              <div class="relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xl dark:shadow-2xl transition-colors">
+                
+                <!-- Main Headshot Photo -->
+                <div class="relative h-96 w-full overflow-hidden bg-slate-100 dark:bg-slate-950">
+                  <img src="Images/session-02.jpeg" alt="Raghul Loganathan" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
+                  
+                  <!-- Badge on Image -->
+                  <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <div class="bg-slate-900/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-700/60 shadow-lg">
+                      <div class="text-sm font-bold text-white">Raghul Loganathan</div>
+                      <div class="text-xs text-cyan-400 font-mono">Trellissoft • Bangalore, India</div>
+                    </div>
+                    <div class="bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-xs px-2.5 py-1 rounded-full font-medium flex items-center space-x-1.5">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                      <span>Open for Opportunities</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Snapshot Highlights Inside Card -->
+                <div class="p-5 space-y-3 bg-slate-50/90 dark:bg-slate-900/90">
+                  <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
+                    <span><i class="fa-solid fa-code-commit text-cyan-600 dark:text-cyan-400 mr-1.5"></i>Status</span>
+                    <span class="text-slate-800 dark:text-slate-200 font-medium">Promoted to Sr. Data Engineer</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 pb-2">
+                    <span><i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i>IoT Telemetry</span>
+                    <span class="text-slate-800 dark:text-slate-200 font-medium">~1,000 records/min Real-Time</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                    <span><i class="fa-solid fa-chart-pie text-indigo-500 mr-1.5"></i>Reporting</span>
+                    <span class="text-slate-800 dark:text-slate-200 font-medium">Power BI, SSRS, Paginated Views</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-slate-100/60 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <h2 class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">About Me</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Data Engineer with End-to-End Ownership</p>
+          <div class="mt-3 w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Story / Narrative -->
+          <div class="lg:col-span-7 space-y-5 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+            <p>
+              I am a <strong class="text-slate-900 dark:text-white font-semibold">Senior Data Engineer & BI Developer</strong> with over 6 years of experience mastering both ends of the modern data stack.
+            </p>
+            <p>
+              My strength lies in owning the complete lifecycle of a data product: from diagnosing source systems and establishing change data capture (CDC), to constructing multi-stage <strong class="text-slate-900 dark:text-white font-semibold">Medallion Lakehouses</strong> (Bronze, Silver, Gold) in Databricks and Microsoft Fabric, all the way to optimizing semantic models and delivering high-impact executive dashboards.
+            </p>
+            <p>
+              Throughout my journey across global clients in retail coffee, automotive manufacturing, healthcare, and FMCG, I have consistently driven technical efficiency—such as <strong class="text-cyan-600 dark:text-cyan-400 font-semibold">slashing Fabric Capacity Unit (CU) consumption by 45%</strong> through Databricks transformation offloading and incremental refresh strategies.
+            </p>
+
+            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                <div class="text-cyan-600 dark:text-cyan-400 font-bold mb-1 flex items-center">
+                  <i class="fa-solid fa-server mr-2"></i> Heavyweight Engineering
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Resilient pipelines, PySpark orchestration, Kafka streaming, and capacity cost optimization.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 shadow-sm">
+                <div class="text-indigo-600 dark:text-indigo-400 font-bold mb-1 flex items-center">
+                  <i class="fa-solid fa-chart-line mr-2"></i> Business-Driven Analytics
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Complex DAX, clean dimensional modeling, and interactive reporting that business leaders rely on.</p>
+              </div>
+            </div>
+
+            <!-- Quick Details -->
+            <div class="pt-2 flex flex-wrap gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-location-dot text-cyan-600 dark:text-cyan-400"></i>
+                <span>Bangalore, India</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-building text-cyan-600 dark:text-cyan-400"></i>
+                <span>Trellissoft Engineering Services</span>
+              </div>
+              <div class="flex items-center space-x-1.5">
+                <i class="fa-solid fa-graduation-cap text-cyan-600 dark:text-cyan-400"></i>
+                <span>B.Tech, Anna University (2020)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Whiteboard & Architecture Action Photo -->
+          <div class="lg:col-span-5">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
+              <div class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl">
+                <img src="Images/session-01.jpeg" alt="Raghul Loganathan System Design Presentation" class="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <div class="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="font-mono text-cyan-600 dark:text-cyan-400 font-semibold"><i class="fa-solid fa-chalkboard-user mr-1.5"></i>System Design in Action</span>
+                    <span class="text-slate-500 dark:text-slate-400 font-mono">Architecture & Whiteboarding</span>
+                  </div>
+                  <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Designing scalable data architectures, capacity modeling, and medallion lakehouses with engineering teams.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE FLOW / PIPELINE SHOWCASE -->
+    <section id="architecture" class="py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Data Engineering Blueprint</span>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">End-to-End Pipeline Architecture</h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+            How I architect data solutions from source ingestion and CDC streaming to the medallion lakehouse and executive dashboards.
+          </p>
+        </div>
+
+        <!-- Architecture Flow Visual Diagram -->
+        <div class="glass-card rounded-2xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 relative glow-cyan">
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+            
+            <!-- Step 1: Ingestion & CDC -->
+            <div class="relative rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-cyan-200 dark:border-cyan-500/30 p-5 space-y-3 shadow-xs">
+              <div class="w-10 h-10 rounded-lg bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-lg">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Layer 01</div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Sources & Ingestion</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Capturing transactional changes with Debezium CDC, Kafka streams, CData sync, REST APIs, and SSIS batches.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SQL Server</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Kafka</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Debezium CDC</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Salesforce/APIs</span>
+              </div>
+            </div>
+
+            <!-- Step 2: Stream & Event Processing -->
+            <div class="relative rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-blue-200 dark:border-blue-500/30 p-5 space-y-3 shadow-xs">
+              <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 font-semibold">Layer 02</div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Streaming & Queues</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Sub-second event routing with Azure Event Hub, Fabric Eventstream & Eventhouse processing 1,000+ rec/min.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Azure Event Hub</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Eventstream</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">KQL / Eventhouse</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Transformation & Lakehouse -->
+            <div class="relative rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-indigo-200 dark:border-indigo-500/30 p-5 space-y-3 shadow-xs">
+              <div class="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold text-lg">
+                <i class="fa-solid fa-cubes-stacked"></i>
+              </div>
+              <div class="text-xs font-mono uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-semibold">Layer 03</div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Medallion Lakehouse</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Bronze to Silver to Gold modeling via Databricks (PySpark, Spark SQL) & Fabric Pipelines with Delta Parquet tables.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Databricks</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">PySpark</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Lakehouse</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Delta Tables</span>
+              </div>
+            </div>
+
+            <!-- Step 4: Semantic Layer & BI -->
+            <div class="relative rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-emerald-200 dark:border-emerald-500/30 p-5 space-y-3 shadow-xs">
+              <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">
+                <i class="fa-solid fa-chart-simple"></i>
+              </div>
+              <div class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">Layer 04</div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">BI & Semantic Layer</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Optimized star schemas, DAX measures, incremental refresh, and sub-5 min latency Power BI dashboards.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Power BI (DAX)</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Semantic Models</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SSRS / Paginated</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Metrics</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Summary Bar -->
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-shield-halved text-cyan-600 dark:text-cyan-400"></i>
+              <span>High-throughput, resilient architecture with automated error tracking and incremental refresh</span>
+            </div>
+            <div class="mt-3 sm:mt-0 font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
+              <span>Low-Latency (~5 Min) • 99.9% Pipeline Uptime</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="py-20 bg-slate-100/60 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Skills & Tooling</span>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Technical Expertise</h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Comprehensive stack spanning modern data engineering, lakehouse architecture, and enterprise BI analytics.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Card 1: BI & Reporting -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 dark:hover:border-cyan-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">BI & Reporting</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Executive dashboards, operational reports, and high-performance semantic modeling.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-200 dark:border-slate-700">Power BI (DAX, Power Query)</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SSRS</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Paginated Reports</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Apache Superset</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Jasper Studio</span>
+            </div>
+          </div>
+
+          <!-- Card 2: ETL & Pipelines -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">ETL & Data Pipelines</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Batch orchestration, notebook pipelines, and enterprise data consolidation.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-blue-800 dark:text-blue-300 border border-slate-200 dark:border-slate-700">Databricks Notebooks</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-blue-800 dark:text-blue-300 border border-slate-200 dark:border-slate-700">PySpark & Spark SQL</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Notebooks & Pipelines</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SSIS</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Pentaho Data Integration</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Streaming & CDC -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 dark:hover:border-amber-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Streaming & CDC</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Real-time telemetry ingestion, event streaming, and database change capture.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">Apache Kafka</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">Debezium CDC</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Azure Event Hub</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Eventstream</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Eventhouse</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Data Platforms & Warehouses -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/50 dark:hover:border-indigo-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-cloud"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Data Platforms</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Lakehouse environments, cloud data warehouses, and relational databases.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 border border-slate-200 dark:border-slate-700">Microsoft Fabric</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-indigo-800 dark:text-indigo-300 border border-slate-200 dark:border-slate-700">Databricks</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SQL Server</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">PostgreSQL</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Snowflake</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">AWS Redshift</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Azure Synapse</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Data Modeling & Architecture -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-sitemap"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Data Modeling</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Scalable schemas, dimensional modeling, and lakehouse storage design.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 border border-slate-200 dark:border-slate-700">Medallion Lakehouse Design</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 border border-slate-200 dark:border-slate-700">Star & Snowflake Schema</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">E-R Modeling</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Normalization</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Delta Lake / Parquet</span>
+            </div>
+          </div>
+
+          <!-- Card 6: DevOps & Project Workflow -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-purple-500/50 dark:hover:border-purple-500/40 shadow-sm transition-all">
+            <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">DevOps & Tooling</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Version control, CI/CD pipelines, issue tracking, and agile workflows.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-purple-800 dark:text-purple-300 border border-slate-200 dark:border-slate-700">GitLab</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-purple-800 dark:text-purple-300 border border-slate-200 dark:border-slate-700">BitBucket</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Jenkins CI/CD</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">JIRA</span>
+              <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Advanced SQL</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Real-World Impact</span>
+            <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Featured Client Projects</h2>
+            <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm max-w-2xl">Key enterprise initiatives delivering measurable performance improvements and decision-ready intelligence.</p>
+          </div>
+          
+          <!-- Filter Buttons -->
+          <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="projectFilters">
+            <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-medium bg-cyan-600 dark:bg-cyan-500 text-white shadow-xs transition-all">All Projects</button>
+            <button data-filter="fabric" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">Fabric & Databricks</button>
+            <button data-filter="streaming" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">Streaming & IoT</button>
+            <button data-filter="bi" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">Enterprise BI</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projectsGrid">
+
+          <!-- PROJECT 1: Black Rock Coffee Bar (Fabric & Capacity Optimization) -->
+          <div class="project-card rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="fabric">
+            <div class="p-6 sm:p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-3">
+                <span class="flex items-center"><i class="fa-solid fa-mug-hot mr-1.5"></i>US Retail Coffee Chain</span>
+                <span>April 2026 - Present</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Microsoft Fabric Migration & Capacity Optimization</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                Migrated an enterprise analytics ecosystem of 20+ Power BI dashboards (sales, loyalty program, seasonal trends, daily orders) from ADF/Databricks/ADLS into Microsoft Fabric, enabling self-service analytics across the entire organization.
+              </p>
+              
+              <!-- Problem / Solution Metric Highlight -->
+              <div class="my-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-cyan-200 dark:border-cyan-500/20 space-y-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center">
+                  <i class="fa-solid fa-gauge-high mr-2 text-emerald-600 dark:text-emerald-400"></i> Capacity Bottleneck Resolved
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Diagnosed semantic model refresh consuming <span class="text-red-500 dark:text-red-400 font-semibold">66%</span> of total Fabric Capacity Units (CUs), causing query queuing and cancellations. Redesigned refresh architecture by offloading heavy transformations to Databricks and applying incremental refresh, slashing refresh-driven CU consumption to <span class="text-emerald-600 dark:text-emerald-400 font-bold">35% (~45% overall reduction)</span>.
+                </p>
+              </div>
+
+              <div class="mt-auto pt-4 flex flex-wrap gap-1.5 text-xs font-mono">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-200 dark:border-slate-700">Microsoft Fabric</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Databricks (PySpark)</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Capacity Metrics</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Power BI (20+ Reports)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: Toyoda (Real-Time IoT Telemetry & Lakehouse) -->
+          <div class="project-card rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="streaming">
+            <div class="p-6 sm:p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-3">
+                <span class="flex items-center"><i class="fa-solid fa-industry mr-1.5"></i>Manufacturing Client (3 Plants)</span>
+                <span>April 2026 - Present</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Real-Time IoT Streaming Telemetry & Lakehouse</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                Architected an end-to-end real-time telemetry ingestion pipeline capturing sensor metrics across 3 manufacturing plants to power low-latency shift and fault-detection dashboards.
+              </p>
+              
+              <!-- Metric Highlight -->
+              <div class="my-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-cyan-200 dark:border-cyan-500/20 space-y-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center">
+                  <i class="fa-solid fa-bolt mr-2 text-amber-500"></i> High-Throughput & Low-Latency
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Enabled CDC on SQL Server via Debezium and Kafka, streamed through Azure Event Hub into Fabric Eventstream/Eventhouse processing <span class="text-cyan-700 dark:text-cyan-300 font-bold">~1,000 records/minute</span>. Delivered low-latency (<span class="text-emerald-600 dark:text-emerald-400 font-bold">~5 minute</span>) Power BI reports alongside parallel Medallion batch pipelines.
+                </p>
+              </div>
+
+              <div class="mt-auto pt-4 flex flex-wrap gap-1.5 text-xs font-mono">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-slate-200 dark:border-slate-700">Kafka & Debezium</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Azure Event Hub</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Fabric Eventhouse</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Medallion Lakehouse</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Neil Kelly Constructions (Salesforce & Sage Intacct Warehouse) -->
+          <div class="project-card rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="bi">
+            <div class="p-6 sm:p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-3">
+                <span class="flex items-center"><i class="fa-solid fa-hammer mr-1.5"></i>US Construction Enterprise</span>
+                <span>March 2025 - Present</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Salesforce & Sage Intacct Unified Warehouse</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                Designed an automated integration unifying CRM (Salesforce) and ERP/Financial (Sage Intacct) data sources into SQL Server to deliver complete revenue visibility for executive leadership.
+              </p>
+              
+              <!-- Metric Highlight -->
+              <div class="my-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-cyan-200 dark:border-cyan-500/20 space-y-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center">
+                  <i class="fa-solid fa-chart-column mr-2 text-indigo-600 dark:text-indigo-400"></i> Executive Financial Intelligence
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Synchronized <span class="text-cyan-700 dark:text-cyan-300 font-bold">~100,000 rows/day</span> through CData and SSIS into unified reporting schemas. Built executive Power BI dashboards with historical YoY and MoM comparisons, divisional splits, and opportunity conversion rates.
+                </p>
+              </div>
+
+              <div class="mt-auto pt-4 flex flex-wrap gap-1.5 text-xs font-mono">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-200 dark:border-slate-700">SSIS & CData</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">SQL Server Warehouse</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Salesforce & Sage Intacct</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Power BI (YoY / MoM)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 4: FirstLine Road Solutions (Unified Warehouse & Executive Dashboards) -->
+          <div class="project-card rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="bi">
+            <div class="p-6 sm:p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-3">
+                <span class="flex items-center"><i class="fa-solid fa-truck-pickup mr-1.5"></i>US Road-Assistance Operations</span>
+                <span>Jan 2024 - Feb 2025</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Automated Operations Warehouse & Reporting</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                Consolidated disparate data from Excel spreadsheets and operational REST APIs into a single-source-of-truth data warehouse for dispatch, field operations, and accounting.
+              </p>
+              
+              <!-- Metric Highlight -->
+              <div class="my-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-cyan-200 dark:border-cyan-500/20 space-y-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-800 dark:text-cyan-300 flex items-center">
+                  <i class="fa-solid fa-file-excel mr-2 text-emerald-600 dark:text-emerald-400"></i> Eliminating Manual Workflows
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Replaced an error-prone recurring monthly manual extraction cycle with an automated ETL pipeline and executive Power BI dashboards tracking live revenue, expenses, and operational KPIs.
+                </p>
+              </div>
+
+              <div class="mt-auto pt-4 flex flex-wrap gap-1.5 text-xs font-mono">
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-cyan-800 dark:text-cyan-300 border border-slate-200 dark:border-slate-700">Automated ETL</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">API Integration</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Executive Power BI</span>
+                <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Expense Tracking</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE & TIMELINE -->
+    <section id="experience" class="py-20 bg-slate-100/60 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Career Journey</span>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Experience & Growth</h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Demonstrated trajectory of leadership, technical ownership, and delivering value to global stakeholders.</p>
+        </div>
+
+        <div class="relative border-l-2 border-slate-300 dark:border-slate-800 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
+          
+          <!-- Experience 1: Trellissoft (Sr. Data Engineer) -->
+          <div class="relative group">
+            <!-- Timeline Pin -->
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-cyan-500 border-4 border-slate-50 dark:border-slate-900 group-hover:scale-125 transition-transform shadow-xs"></div>
+            
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-2">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sr. Data Engineer</h3>
+                  <div class="text-sm text-cyan-700 dark:text-cyan-400 font-medium">Trellissoft Engineering Services Pvt. Ltd. • Bangalore, India</div>
+                </div>
+                <div class="inline-flex items-center space-x-2 text-xs font-mono bg-cyan-100 dark:bg-cyan-950/60 border border-cyan-300 dark:border-cyan-800 text-cyan-800 dark:text-cyan-300 px-3 py-1 rounded-full w-fit">
+                  <span>Oct 2025 - Present</span>
+                </div>
+              </div>
+
+              <div class="mt-4 inline-block px-3 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-300 text-xs font-medium mb-3">
+                <i class="fa-solid fa-trophy mr-1.5"></i> Promoted to Senior Data Engineer on October 15, 2025
+              </div>
+
+              <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc list-inside">
+                <li>Architecting end-to-end data lakes and streaming telemetry solutions across international clients (Black Rock Coffee Bar, Toyoda, Neil Kelly).</li>
+                <li>Pioneered capacity optimization frameworks on Microsoft Fabric, reducing client cloud costs and eliminating query queuing.</li>
+                <li>Spearheading development of an internal AI-based BI product (ongoing since March 2026).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 2: Trellissoft (Data Engineer) -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-slate-400 dark:bg-slate-700 border-4 border-slate-50 dark:border-slate-900 group-hover:bg-cyan-500 transition-colors"></div>
+            
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-2">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Data Engineer</h3>
+                  <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Trellissoft Engineering Services Pvt. Ltd.</div>
+                </div>
+                <div class="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full w-fit">
+                  <span>Apr 2022 - Oct 2025</span>
+                </div>
+              </div>
+
+              <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc list-inside">
+                <li>Built automated ETL pipelines and executive Power BI suites for FirstLine Road Solutions and Neil Kelly Constructions.</li>
+                <li>Created RelyBill claims-analytics data models, stored procedures, and paginated views for internal healthcare products.</li>
+                <li>Developed complex SSRS reports and SQL procedures for GetixHealth (US healthcare domain).</li>
+                <li>Resolved critical Pentaho ETL failures for Empereon-Constar, cutting data latency by 60%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 3: Ivy Mobility Solutions -->
+          <div class="relative group">
+            <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-slate-400 dark:bg-slate-700 border-4 border-slate-50 dark:border-slate-900 group-hover:bg-cyan-500 transition-colors"></div>
+            
+            <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-2">
+                <div>
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer / Intern</h3>
+                  <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Ivy Mobility Solutions Ltd. • Chennai, India</div>
+                </div>
+                <div class="text-xs font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full w-fit">
+                  <span>Feb 2020 - Apr 2022</span>
+                </div>
+              </div>
+
+              <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-disc list-inside">
+                <li>Engineered ETL pipelines using Pentaho and SSIS connecting Amazon Redshift and SQL Server for global FMCG & DMS clients (Carlsberg, Dairy Day, Bimbo, Syngenta, SOHO) across US, Mexico, Indonesia, Thailand, and Nepal.</li>
+                <li>Delivered SSRS, Jasper, and Apache Superset reports for sales and distribution KPI tracking; provided L2/L3 production support for live mission-critical data flows.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORKSHOP & WHITEBOARD GALLERY -->
+    <section id="gallery" class="py-20 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-semibold">Leadership & Collaboration</span>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">System Design & Technical Sessions</h2>
+          <p class="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Leading technical workshops, collaborating on whiteboard architectures, and mentoring engineering teams.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Photo 1: Deep Dive Architecture -->
+          <div class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-72 overflow-hidden bg-slate-100 dark:bg-slate-950">
+              <img src="Images/session-01.jpeg" alt="Whiteboard Architecture Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-5">
+              <div class="text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-1"><i class="fa-solid fa-diagram-project mr-1.5"></i>Architecture Blueprinting</div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Lakehouse & Streaming Workflows</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Deep-diving into medallion lakehouse stages, capacity modeling, and event ingestion topology.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2: Team Engagement -->
+          <div class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-72 overflow-hidden bg-slate-100 dark:bg-slate-950">
+              <img src="Images/session-02.jpeg" alt="Whiteboard Session Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-5">
+              <div class="text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-1"><i class="fa-solid fa-users mr-1.5"></i>Engineering Culture</div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Collaborative Problem Solving</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Fostering high-trust communication, code quality standards, and continuous engineering improvements.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3: Explaining Complex Logic -->
+          <div class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-cyan-500/50 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300">
+            <div class="h-72 overflow-hidden bg-slate-100 dark:bg-slate-950">
+              <img src="Images/session-03.jpeg" alt="Presenting Data Pipelines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-5">
+              <div class="text-xs font-mono text-cyan-700 dark:text-cyan-400 mb-1"><i class="fa-solid fa-microphone-lines mr-1.5"></i>Stakeholder Alignment</div>
+              <h4 class="text-base font-bold text-slate-900 dark:text-white">Translating Tech to Business Value</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Presenting technical trade-offs clearly to product managers, domain leaders, and executive stakeholders.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="py-16 bg-slate-100/60 dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Education -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Education</h3>
+            <div class="space-y-4">
+              <div>
+                <div class="text-base font-semibold text-slate-900 dark:text-white">Bachelor of Technology (B.Tech)</div>
+                <div class="text-sm text-cyan-700 dark:text-cyan-400">Anna University (Jeppiaar SRR Engineering College)</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">Graduated 2020</div>
+              </div>
+              <div class="pt-2 border-t border-slate-200 dark:border-slate-800/80 text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                <div>Higher Secondary Certificate (HSC) • State Board (2016)</div>
+                <div>Secondary School Leaving Certificate (SSLC) • State Board (2014)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Certifications & Validations</h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <i class="fa-solid fa-circle-check text-emerald-600 dark:text-emerald-400 mt-1"></i>
+                <div>
+                  <div class="text-base font-semibold text-slate-900 dark:text-white">Data Analyst - SSIS / SQL / Power BI</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-mono">Issued by Udemy</div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fa-solid fa-circle-check text-emerald-600 dark:text-emerald-400 mt-1"></i>
+                <div>
+                  <div class="text-base font-semibold text-slate-900 dark:text-white">Advanced SQL Certification</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-mono">Verified by HackerRank</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="glass-card rounded-3xl p-8 sm:p-14 border border-slate-200 dark:border-slate-800 text-center relative overflow-hidden glow-cyan">
+          <div class="max-w-2xl mx-auto space-y-6">
+            
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/60 border border-cyan-300 dark:border-cyan-800 text-cyan-800 dark:text-cyan-300 text-xs font-mono">
+              <i class="fa-solid fa-envelope-open-text"></i>
+              <span>Let's Build Something Great Together</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Ready to elevate your <span class="gradient-text">data architecture</span>?
+            </h2>
+
+            <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+              Whether you are planning a Microsoft Fabric migration, architecting a real-time IoT streaming pipeline, or looking for an impactful Senior Data Engineer to join your team, let’s connect.
+            </p>
+
+            <!-- Contact Information Cards -->
+            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+              
+              <!-- Email -->
+              <a href="mailto:rioraghul@gmail.com" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-colors group">
+                <div class="text-cyan-600 dark:text-cyan-400 text-lg mb-2"><i class="fa-solid fa-envelope"></i></div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">Direct Email</div>
+                <div class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 truncate">rioraghul@gmail.com</div>
+              </a>
+
+              <!-- Phone -->
+              <a href="tel:+919080905603" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-colors group">
+                <div class="text-emerald-600 dark:text-emerald-400 text-lg mb-2"><i class="fa-solid fa-phone"></i></div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">Phone & WhatsApp</div>
+                <div class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-300 truncate">+91 9080905603</div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/raghul-loganathan" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-colors group">
+                <div class="text-blue-600 dark:text-blue-400 text-lg mb-2"><i class="fa-brands fa-linkedin"></i></div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">LinkedIn Network</div>
+                <div class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 truncate">raghul-loganathan</div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/Raghulvl" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-colors group">
+                <div class="text-slate-700 dark:text-slate-300 text-lg mb-2"><i class="fa-brands fa-github"></i></div>
+                <div class="text-xs text-slate-500 dark:text-slate-400">GitHub Profile</div>
+                <div class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-300 truncate">Raghulvl</div>
+              </a>
+
+            </div>
+
+            <!-- Big Action Buttons -->
+            <div class="pt-6 flex flex-wrap justify-center gap-4">
+              <a href="mailto:rioraghul@gmail.com" class="inline-flex items-center space-x-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-xl shadow-cyan-500/30 transition-all duration-200">
+                <i class="fa-solid fa-paper-plane mr-2"></i>
+                <span>Send an Email</span>
+              </a>
+
+              <a href="Resume/Raghul-Loganathan-Resume.pdf" target="_blank" download="Raghul_Loganathan_Resume.pdf" class="inline-flex items-center space-x-2 px-8 py-4 rounded-xl font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 shadow-sm transition-all duration-200">
+                <i class="fa-solid fa-file-arrow-down mr-2 text-cyan-600 dark:text-cyan-400"></i>
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800/80 py-10 bg-slate-100 dark:bg-slate-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-cyan-600 dark:bg-cyan-500 flex items-center justify-center text-white font-bold text-sm">RL</div>
+          <div>
+            <div class="text-sm font-semibold text-slate-900 dark:text-white">Raghul Loganathan</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400">Senior Data Engineer & BI Developer • Bangalore, India</div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4 text-slate-500 dark:text-slate-400 text-sm">
+          <a href="https://github.com/Raghulvl" target="_blank" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" title="GitHub"><i class="fa-brands fa-github text-lg"></i></a>
+          <a href="https://linkedin.com/in/raghul-loganathan" target="_blank" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin text-lg"></i></a>
+          <a href="mailto:rioraghul@gmail.com" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" title="Email"><i class="fa-solid fa-envelope text-lg"></i></a>
+          <a href="tel:+919080905603" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" title="Phone"><i class="fa-solid fa-phone text-lg"></i></a>
+        </div>
+
+        <div class="text-xs text-slate-500 dark:text-slate-500 font-mono">
+          © <span id="currentYear"></span> Raghul Loganathan. All rights reserved.
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Theme Switch Logic (Dark & Bright Theme)
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const mobileThemeToggleBtn = document.getElementById('mobileThemeToggleBtn');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    function toggleTheme() {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      applyTheme(!isCurrentlyDark);
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+    if (mobileThemeToggleBtn) {
+      mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when link is clicked
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Project Category Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+
+        // Reset all buttons
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-cyan-600', 'dark:bg-cyan-500', 'text-white');
+          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        });
+
+        // Set active button
+        btn.classList.add('active', 'bg-cyan-600', 'dark:bg-cyan-500', 'text-white');
+        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
